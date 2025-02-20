@@ -1,4 +1,4 @@
-FROM arm64v8/php:8.2-fpm as php
+FROM arm64v8/php:8.3-fpm as php
 
 ARG MAGENTO_ROOT=/home/magento
 
@@ -43,7 +43,7 @@ RUN apt-get update \
 
 # Install Mailpit
 RUN bash -c "$(curl -sL https://raw.githubusercontent.com/axllent/mailpit/develop/install.sh)"
-RUN echo "sendmail_path = /usr/local/bin/mailpit sendmail -S mailpit:1025" >> /usr/local/etc/php/conf.d/sendmail.ini
+RUN echo "sendmail_path = /usr/local/bin/mailpit sendmail -S mailpit:1026" >> /usr/local/etc/php/conf.d/sendmail.ini
 
 # Configure the gd library
 RUN docker-php-ext-configure \

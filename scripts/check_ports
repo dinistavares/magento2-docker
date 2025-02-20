@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "Checking ports from docker-compose.yml..."
+(grep -A1 "ports:" docker-compose.yml | grep "\".*:.*\"" | sed 's/.*"\([0-9]*\):.*/\1/' | sort -u | while read port; do
+    echo -n "Port $port: "
+    if lsof -i ":$port" >/dev/null 2>&1; then
+        echo "🔴 In use"
+        # echo "By:"
+        # lsof -i ":$port" | tail -n +2 | while read line; do
+        #     process_info=$(echo "$line" | awk '{print "  - Process: " $1 " (PID: " $2 ") - " $9}')
+        #     echo "$process_info"
+        # done
+    else
+        echo "🟢 Available"
+    fi
+done) 2>/dev/null
