@@ -120,12 +120,19 @@ To access the magento homepage, go to the following url: https://magento2-dev.co
 **Disable Two Factor Authentication (after running command above):**
 
     bin/magento module:disable Magento_AdminAdobeImsTwoFactorAuth Magento_TwoFactorAuth
-    bin/magento cache:flush 
+    bin/magento cache:flush
 
 **Usefull magento commands:**
 
     # Get admin url
     bin/magento info:adminuri
+
+    # Add sample data
+    bin/magento sampledata:deploy
+    bin/magento setup:upgrade
+
+    # Flush cache
+    bin/magento cache:clean
 
 **Usefull composer commands:**
 
