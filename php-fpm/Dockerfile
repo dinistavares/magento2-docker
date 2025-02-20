@@ -24,6 +24,7 @@ RUN apt-get update \
   ca-certificates \
   lsb-release \
   software-properties-common \
+  fish \
   libbz2-dev \
   libjpeg62-turbo-dev \
   libpng-dev \

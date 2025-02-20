@@ -110,6 +110,10 @@ Install project (don't forget to change **--base-url** to yours):
 
     ./scripts/magento setup:install --base-url=https://magento2-dev.com/ --db-host=mysql --db-name=magento_db --db-user=magento_user --db-password="PASSWD#" --admin-firstname=admin --admin-lastname=admin --admin-email=admin@admin.test --admin-user=admin --admin-password=admin1! --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --opensearch-host=opensearch --opensearch-port=9200 --search-engine=opensearch
 
+Enter container php-fpm container:
+
+    docker exec -it magento2-php-fpm fish
+
 ## Setting up Magento
 To access the magento homepage, go to the following url: https://magento2-dev.com<br>
 
