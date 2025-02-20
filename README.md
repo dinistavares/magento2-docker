@@ -110,12 +110,27 @@ Install project (don't forget to change **--base-url** to yours):
 
     ./scripts/magento setup:install --base-url=https://magento2-dev.com/ --db-host=mysql --db-name=magento_db --db-user=magento_user --db-password="PASSWD#" --admin-firstname=admin --admin-lastname=admin --admin-email=admin@admin.test --admin-user=admin --admin-password=admin1! --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --opensearch-host=opensearch --opensearch-port=9200 --search-engine=opensearch
 
-Enter container php-fpm container:
+## Setting up Magento
+To access the magento homepage, go to the following url: https://magento2-dev.com<br>
+
+**If you need to run magento commands, enter container php-fpm container:**
 
     docker exec -it magento2-php-fpm fish
 
-## Setting up Magento
-To access the magento homepage, go to the following url: https://magento2-dev.com<br>
+**Disable Two Factor Authentication (after running command above):**
+
+    bin/magento module:disable Magento_AdminAdobeImsTwoFactorAuth Magento_TwoFactorAuth
+    bin/magento cache:flush 
+
+**Usefull magento commands:**
+
+    # Get admin url
+    bin/magento info:adminuri
+
+**Usefull composer commands:**
+
+    # Add packagist repository to the composer.json file (when instaling module that was not released to store yet)
+    composer config repositories.packagist.org composer https://repo.packagist.org
 
 <details>
 
